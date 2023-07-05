@@ -33,29 +33,7 @@ public class Main {
                             throw new FileProcessingException("Строка в файле превышает 1024 символа: " + line);
                         }
                         String[] parts = line.split(" ");
-
-                        String ipAddress = parts[0];
-                        String property1 = parts[1];
-                        String property2 = parts[2];
-                        String dateTime = parts[3].substring(1, parts[3].length() - 1);
-                        String method = parts[5].substring(1);
-                        String pathInfo = parts[6];
-                        String responseCode = parts[8];
-                        String dataSize = parts[9];
-                        String referer = parts[10].substring(1, parts[10].length() - 1);
                         String userAgent = line.substring(line.indexOf("\"", line.indexOf("\"") + 1) + 1, line.lastIndexOf("\""));
-
-                       /* System.out.println("IP-адрес: " + ipAddress);
-                        System.out.println("Свойство 1: " + property1);
-                        System.out.println("Свойство 2: " + property2);
-                        System.out.println("Дата и время запроса: " + dateTime);
-                        System.out.println("Метод запроса: " + method);
-                        System.out.println("Путь: " + pathInfo);
-                        System.out.println("Код HTTP-ответа: " + responseCode);
-                        System.out.println("Размер данных в байтах: " + dataSize);
-                        System.out.println("Referer: " + referer);
-                        System.out.println("User-Agent: " + userAgent);
-                        System.out.println("-----------------------");*/
 
                         String[] userAgentParts = userAgent.split("\\(");
                         if (userAgentParts.length >= 2) {
@@ -88,6 +66,7 @@ public class Main {
             continue;
         }
     }
+
 }
 
 
